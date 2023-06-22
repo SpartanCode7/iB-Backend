@@ -1,6 +1,6 @@
 const Category = require('../model/category');
 
-async function geCatetByIdMiddleware(req, res, next) {
+async function getCateByIdMiddleware(req, res, next) {
   let category;
   try {
     category = await Category.findById(req.params.id);
@@ -14,4 +14,4 @@ async function geCatetByIdMiddleware(req, res, next) {
   next();
 }
 
-module.exports = { geCatetByIdMiddleware }
+module.exports = { getCateByIdMiddleware }

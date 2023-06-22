@@ -14,8 +14,8 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  category: [{
-    type: mongoose.Schema.Types.ObjectId,
+  category: [{ 
+    type: String,
     ref: 'Category'
   }],
   price: {
@@ -25,9 +25,10 @@ const productSchema = new mongoose.Schema({
   salePrice: {
     type: Number
   },
-  images: [{
-    type: String
-  }],
+  image: { 
+    type: String,
+    required: true
+  },
   brand: {
     type: String
   },
@@ -38,7 +39,7 @@ const productSchema = new mongoose.Schema({
   tags: [{
     type: String
   }],
-  attributes: [{
+  attributes: [{ 
     name: {
       type: String,
       required: true
@@ -77,17 +78,13 @@ const productSchema = new mongoose.Schema({
     }]
   }],
   reviews: [{
-    type: mongoose.Schema.Types.ObjectId,
+    type: Number,
     ref: 'Review'
   }],
   rating: {
     type: Number,
     default: 0
   },
-  relatedProducts: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Product'
-  }]
 });
 
 const Product = mongoose.model('products', productSchema)
